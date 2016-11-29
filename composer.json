@@ -12,7 +12,7 @@
     "minimum-stability": "stable",
     "require": {},
     "autoload": {
-        "psr4": {
+        "psr-4": {
             "Envitor\\": "src/Envitor/"
         }
     }
