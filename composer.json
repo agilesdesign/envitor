@@ -1,0 +1,19 @@
+{
+    "name": "agilesdesign/envitor",
+    "description": "DotEnv Editor Library for Laravel",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Justin Seliga",
+            "email": "jseliga@agilesdesign.com"
+        }
+    ],
+    "minimum-stability": "stable",
+    "require": {},
+    "autoload": {
+        "psr4": {
+            "Envitor\\": "src/Envitor/"
+        }
+    }
+}
