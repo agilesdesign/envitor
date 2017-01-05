@@ -13,10 +13,13 @@ class Editor {
 
 	public function __construct()
 	{
-		$this->path = base_path('.env');
-
-		$this->initialize();
+		$this->hydrateData();
 	}
+
+	protected function path()
+    {
+        return base_path('.env');
+    }
 
 	public function has($key)
 	{
@@ -42,7 +45,7 @@ class Editor {
 			return $key . '=' . $item;
 		})->implode("\n");
 
-		File::put($this->path, $content);
+		File::put($this->path(), $content);
 	}
 
 	public function get($key, $default = null)
@@ -50,9 +53,9 @@ class Editor {
 		return Arr::get($this->data, $key, $default);
 	}
 
-	protected function initialize()
+	protected function hydrateData()
 	{
-		$this->data = collect(explode("\n", File::get($this->path)))
+		$this->data = collect(explode("\n", File::get($this->path())))
 			->keyBy(function($line, $key){
 				return explode('=', $line)[0];
 			})->reject(function($line, $key) {
@@ -62,4 +65,9 @@ class Editor {
 				return explode('=', $line)[1];
 			})->toArray();
 	}
+
+	public function all()
+    {
+        return $this->data;
+    }
 }
