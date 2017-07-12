@@ -4,10 +4,10 @@ namespace Envitor\Facades;
 
 use Illuminate\Support\Facades\Facade;
 
-class DotEnv extends Facade
+class Envitor extends Facade
 {
 	public static function getFacadeAccessor()
 	{
-		return 'dotenv';
+		return 'envitor';
 	}
 }
