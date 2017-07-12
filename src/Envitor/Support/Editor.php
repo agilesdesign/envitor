@@ -3,6 +3,7 @@
 namespace Envitor\Support;
 
 use Illuminate\Support\Arr;
+use Illuminate\Support\Str;
 use Illuminate\Support\Facades\File;
 
 class Editor
@@ -36,6 +37,9 @@ class Editor
     public function hydrate()
     {
         $this->data = collect(explode("\n", File::get($this->path())))
+            ->reject(function ($line, $key) {
+                return Str::startsWith($line, '#');
+            })
             ->keyBy(function ($line, $key) {
                 return explode('=', $line)[0];
             })->reject(function ($line, $key) {
