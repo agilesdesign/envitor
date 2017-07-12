@@ -18,8 +18,11 @@ class EnvitorServiceProvider extends ServiceProvider
         $this->registerAppBindings();
     }
 
-	protected function registerAppBindings()
-	{
-		App::singleton('dotenv', Editor::class);
-	}
+    /**
+     * Register bindings into the container
+     */
+    protected function registerAppBindings()
+    {
+        App::singleton('envitor', new Editor(base_path('.env')));
+    }
 }
