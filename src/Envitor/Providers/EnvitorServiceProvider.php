@@ -3,7 +3,6 @@
 namespace Envitor\Providers;
 
 use Envitor\Support\Editor;
-use Illuminate\Support\Facades\App;
 use Illuminate\Support\ServiceProvider;
 
 class EnvitorServiceProvider extends ServiceProvider
@@ -23,6 +22,8 @@ class EnvitorServiceProvider extends ServiceProvider
      */
     protected function registerAppBindings()
     {
-        App::singleton('envitor', new Editor(base_path('.env')));
+        app()->singleton('envitor', function () {
+            return new Editor(base_path('.env'));
+        });
     }
 }
