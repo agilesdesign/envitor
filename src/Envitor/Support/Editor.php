@@ -15,7 +15,7 @@ class Editor
     {
         $this->setPath($path);
 
-        $this->hyrdate();
+        $this->hydrate();
     }
 
     /**
