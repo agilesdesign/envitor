@@ -15,5 +15,18 @@
         "psr-4": {
             "Envitor\\": "src/Envitor/"
         }
+    },
+    "require-dev": {
+        "orchestra/testbench": "^3.4"
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Envitor\\Providers\\EnvitorServiceProvider"
+            ],
+            "aliases": {
+                "Envitor": "Envitor\\Facades\\Envitor"
+            }
+        }
     }
 }
