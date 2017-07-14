@@ -76,6 +76,7 @@ class Editor
      *
      * @param $key
      * @param $value
+     * @return $this
      */
     public function set($key, $value)
     {
@@ -86,6 +87,8 @@ class Editor
         } else {
             Arr::set($this->data, $key, $value);
         }
+
+        return $this;
     }
 
     /**
