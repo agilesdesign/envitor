@@ -118,7 +118,7 @@ class Editor
      * Save data to .env file
      *
      */
-    protected function save()
+    public function save()
     {
         $content = collect($this->data)->transform(function ($item, $key) {
             return $key . '=' . $item;
