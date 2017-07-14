@@ -1,4 +1,4 @@
-# exceptum
+# envitor
 dotenv file editor
 
 ### Installation
